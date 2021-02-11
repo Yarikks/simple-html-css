@@ -1,0 +1,477 @@
+@import "variables.scss";
+
+main {
+  display: grid;
+  
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column: 2;
+  grid-row: 3;
+
+  & .binary {
+    display: grid;
+    grid-column: 1 / 5;
+    grid-row: 1 / 7;
+
+    &:hover .card {
+      transform: rotateY( 180deg ) ;
+      transition: transform 1s;
+    }
+
+    & .card {
+      transition: transform 1s;
+      transform-style: preserve-3d;
+
+      & .front,
+        .back {
+          display: grid;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          backface-visibility: hidden;
+      }
+
+      & .front {
+        background-color: $BinaryCardBackgroundColor;
+
+        & .academy-logo {
+          width: 60%;
+          height: 60%;
+          align-self: center;
+          justify-self: center;
+        }
+      }
+
+      & .back {
+        display: grid;
+        background-color: #fff;
+        transform: rotateY( 180deg );
+
+        & button {
+          width: 30%;
+          padding: 8px;
+          align-self: center;
+          justify-self: center;
+          background-color: #2D99FF;
+          color: #fff;
+          font-size: 18px;
+          border: 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  & .qa {
+    display: grid;
+    grid-column: 1 / 5;
+    grid-row: 7 / 13;
+
+    &:hover .card {
+      transform: rotateX(-180deg);
+      transition: transform 1s;
+    }
+
+    & .card {
+      transition: transform 1s;
+      transform-style: preserve-3d;
+
+      & .front,
+        .back {
+          display: grid;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          backface-visibility: hidden;
+      }
+
+      & .front {
+        background-color: $QACardBackgroundColor;
+
+        & p {
+          align-self: center;
+          justify-self: center;
+          color: #fff;
+          font-size: 64px;
+        }
+      }
+
+      & .back {
+        display: grid;
+        background-color: #fff;
+        transform: rotateX(-180deg);
+        
+        & p {
+          padding: 20px;
+          font-weight: bold;
+          color: black;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  & .js {
+    display: grid;
+    grid-column: 5 / 9;
+    grid-row: 1 / 10;
+
+    &:hover .card {
+      transform: rotate3d(1, 1, 0, 180deg) ;
+      transition: transform 1s;
+    }
+
+    & .card {
+      transition: transform 1s;
+      transform-style: preserve-3d;
+
+      & .front, .back {
+          display: grid;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          backface-visibility: hidden;
+      }
+
+      & .front {
+        background-color: $JSCardBackgroundColor;
+
+        & p {
+          align-self: end;
+          justify-self: end;
+          padding: 4px;
+          font-weight: bold;
+          color: #000;
+          font-size: 64px;
+        }
+      }
+
+      & .back {
+        display: grid;
+        background-color: #fff;
+        transform: rotate3d(1, 1, 0, 180deg) ;
+        
+        & p {
+          padding: 20px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  & .java {
+    position: relative;
+    display: grid;
+    grid-column: 5 / 9;
+    grid-row: 10 / 13;
+
+    & .card {
+      &:hover .front {
+        transition: 0.5s;
+        opacity: 0;
+      }
+      &:hover .back {
+        display: grid;
+      }
+
+      & .front {
+        transition: 0.5s;
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $JavaCardBackgroundColor;
+
+        & p {
+          align-self: center;
+          justify-self: center;
+          font-size: 3vw;
+          color: #fff;
+        }
+      }
+
+      & .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+
+        & p {
+          padding: 16px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  & .php {
+    position: relative;
+    display: grid;
+    grid-column: 9 / 16;
+    grid-row: 1 / 6;
+
+    & .card {
+      &:hover .front {
+        width: 0px;
+        height: 0px;
+
+        & p {
+          display: none;
+        }
+      }
+      &:hover .back {
+        opacity: 1;
+        background-color: #fff;
+      }
+
+      & .front {
+        transition: 0.5s;
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $PhpCardBackgroundColor;
+
+        & p {
+          font-size: 5vw;
+          align-self: center;
+          justify-self: center;
+        }
+      }
+
+      & .back {
+        transition: 0.3s;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        
+        & p {
+          padding: 16px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  & .dotnet {
+    position: relative;
+    display: grid;
+    grid-column: 9 / 14;
+    grid-row: 6 / 13;
+
+    & .card {
+      display: grid;
+      
+      &:hover .front {
+        transition: 0.5s;
+        width: 0;
+        height: 0;
+
+        & p {
+          display: none;
+        }
+      }
+      &:hover .back {
+        opacity: 1;
+      }
+
+      & .front {
+        transition: 0.5s;
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        align-self: center;
+        justify-self: center;
+        background-color: $DotnetCardBackgroundColor;
+
+        & p {
+          font-size: 5vw;
+          align-self: center;
+          justify-self: center;
+          color: #fff;
+        }
+      }
+
+      & .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        
+        & p {
+          padding: 20px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  & .events {
+    position: relative;
+    display: grid;
+    grid-column: 14 / 16;
+    grid-row: 6 / 9;
+
+    & .card {
+      display: grid;
+      
+      &:hover .front {
+        transition: 0.5s;
+        width: 0;
+        height: 0;
+
+        & p {
+          display: none;
+        }
+      }
+      &:hover .back {
+        display: grid;
+      }
+
+      & .front {
+        transition: 0.5s;
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        align-self: end;
+        justify-self: end;
+        background-color: $EventsCardBackgroundColor;
+
+        & p {
+          font-size: 14px;
+          align-self: center;
+          justify-self: center;
+          color: #fff;
+        }
+      }
+
+      & .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+
+        & p {
+          font-size: 18px;
+          padding: 8px;
+          font-weight: bold;
+          overflow-y: scroll;
+        }
+      }
+    }
+  }
+
+  & .blog {
+    position: relative;
+    display: grid;
+    grid-column: 14 / 16;
+    grid-row: 9 / 12;
+
+    & .card {
+      display: grid;
+      
+      &:hover .front {
+        transition: 0.5s;
+        width: 0;
+
+        & p {
+          display: none;
+        }
+      }
+      &:hover .back {
+        opacity: 1;
+      }
+
+      & .front {
+        transition: 0.5s;
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        justify-self: end;
+        background-color: $BlogCardBackgroundColor;
+
+        & p {
+          font-size: 14px;
+          align-self: center;
+          justify-self: center;
+          color: #fff;
+        }
+      }
+
+      & .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+
+        & p {
+          padding: 8px;
+        }
+      }
+    }
+  }
+
+  & .contacts {
+    position: relative;
+    display: grid;
+    grid-column: 14 / 16;
+    grid-row: 12 / 13;
+
+    & .card {
+      display: grid;
+      
+      &:hover .front {
+        transition: 0.5s;
+        width: 0;
+
+        & p {
+          display: none;
+        }
+      }
+      &:hover .back {
+        display: flex;
+      }
+
+      & .front {
+        transition: 0.5s;
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        justify-self: start;
+        background-color: $ContactsCardBackgroundColor;
+
+        & p {
+          font-size: 14px;
+          align-self: center;
+          justify-self: center;
+          color: #fff;
+        }
+      }
+
+      & .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        display: none;
+
+        & i {
+          margin: 8px;
+
+          &:hover {
+            color: #2fc4fa;
+          }
+        }
+      }
+    }
+  }
+}

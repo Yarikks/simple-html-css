@@ -1,0 +1,652 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #F8F9FC;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 50px 50px auto 100px;
+}
+
+.alerts {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+.alerts .alert {
+  display: grid;
+  width: 220px;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 30% 70%;
+  opacity: 0.9;
+  padding: 8px;
+  color: #fff;
+  margin: 10px;
+  border-radius: 4px;
+}
+.alerts .alert.error {
+  background-color: #cc645d;
+}
+.alerts .alert.success {
+  background-color: #76B575;
+}
+.alerts .alert i {
+  grid-column: 1;
+  grid-row: 1/3;
+  align-self: center;
+  justify-self: center;
+}
+.alerts .alert .header {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: start;
+  padding: 4px;
+  padding-top: 10px;
+}
+.alerts .alert .content {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 4px;
+  padding-top: 0;
+  align-self: center;
+  justify-self: start;
+}
+
+header {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 100%;
+  grid-column: 2;
+  grid-row: 1;
+  background-color: #fff;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  animation: 0.4s ease-in-out 0s drop-down;
+  z-index: 1;
+}
+header .logo {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100px;
+  height: 30px;
+}
+header .menu {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header .menu .icon {
+  margin-right: 20px;
+  color: #b5b5b5;
+}
+header .menu .icon:hover {
+  color: #2fc4fa;
+  cursor: pointer;
+}
+header .menu .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffb533;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+header .menu .avatar:hover {
+  background-color: #ffa300;
+}
+header .menu .menu-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 200px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 2px -1px 15px #dedcdc;
+  border-radius: 2px;
+}
+header .menu .menu-content .user-name {
+  font-size: 14px;
+  text-align: center;
+  color: #9da3a3;
+  border-bottom: 1px solid #9da3a3;
+  margin-bottom: 8px;
+}
+header .menu .menu-content p {
+  padding: 6px;
+  font-weight: 700;
+}
+header .menu .menu-content p:hover {
+  background-color: #F7F6F6;
+}
+header .menu #toggle-menu {
+  display: none;
+}
+header .menu #toggle-menu:checked ~ .menu-content {
+  display: block;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column: 2;
+  grid-row: 3;
+}
+main .binary {
+  display: grid;
+  grid-column: 1/5;
+  grid-row: 1/7;
+}
+main .binary:hover .card {
+  transform: rotateY(180deg);
+  transition: transform 1s;
+}
+main .binary .card {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+main .binary .card .front,
+main .binary .card .back {
+  display: grid;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+main .binary .card .front {
+  background-color: #fff;
+}
+main .binary .card .front .academy-logo {
+  width: 60%;
+  height: 60%;
+  align-self: center;
+  justify-self: center;
+}
+main .binary .card .back {
+  display: grid;
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+main .binary .card .back button {
+  width: 30%;
+  padding: 8px;
+  align-self: center;
+  justify-self: center;
+  background-color: #2D99FF;
+  color: #fff;
+  font-size: 18px;
+  border: 0;
+  cursor: pointer;
+}
+main .qa {
+  display: grid;
+  grid-column: 1/5;
+  grid-row: 7/13;
+}
+main .qa:hover .card {
+  transform: rotateX(-180deg);
+  transition: transform 1s;
+}
+main .qa .card {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+main .qa .card .front,
+main .qa .card .back {
+  display: grid;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+main .qa .card .front {
+  background-color: #52BF77;
+}
+main .qa .card .front p {
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+  font-size: 64px;
+}
+main .qa .card .back {
+  display: grid;
+  background-color: #fff;
+  transform: rotateX(-180deg);
+}
+main .qa .card .back p {
+  padding: 20px;
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}
+main .js {
+  display: grid;
+  grid-column: 5/9;
+  grid-row: 1/10;
+}
+main .js:hover .card {
+  transform: rotate3d(1, 1, 0, 180deg);
+  transition: transform 1s;
+}
+main .js .card {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+main .js .card .front, main .js .card .back {
+  display: grid;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+main .js .card .front {
+  background-color: #F7CF69;
+}
+main .js .card .front p {
+  align-self: end;
+  justify-self: end;
+  padding: 4px;
+  font-weight: bold;
+  color: #000;
+  font-size: 64px;
+}
+main .js .card .back {
+  display: grid;
+  background-color: #fff;
+  transform: rotate3d(1, 1, 0, 180deg);
+}
+main .js .card .back p {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+main .java {
+  position: relative;
+  display: grid;
+  grid-column: 5/9;
+  grid-row: 10/13;
+}
+main .java .card:hover .front {
+  transition: 0.5s;
+  opacity: 0;
+}
+main .java .card:hover .back {
+  display: grid;
+}
+main .java .card .front {
+  transition: 0.5s;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #E12B4C;
+}
+main .java .card .front p {
+  align-self: center;
+  justify-self: center;
+  font-size: 3vw;
+  color: #fff;
+}
+main .java .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+main .java .card .back p {
+  padding: 16px;
+  font-weight: bold;
+}
+main .php {
+  position: relative;
+  display: grid;
+  grid-column: 9/16;
+  grid-row: 1/6;
+}
+main .php .card:hover .front {
+  width: 0px;
+  height: 0px;
+}
+main .php .card:hover .front p {
+  display: none;
+}
+main .php .card:hover .back {
+  opacity: 1;
+  background-color: #fff;
+}
+main .php .card .front {
+  transition: 0.5s;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #7C87B7;
+}
+main .php .card .front p {
+  font-size: 5vw;
+  align-self: center;
+  justify-self: center;
+}
+main .php .card .back {
+  transition: 0.3s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+main .php .card .back p {
+  padding: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+main .dotnet {
+  position: relative;
+  display: grid;
+  grid-column: 9/14;
+  grid-row: 6/13;
+}
+main .dotnet .card {
+  display: grid;
+}
+main .dotnet .card:hover .front {
+  transition: 0.5s;
+  width: 0;
+  height: 0;
+}
+main .dotnet .card:hover .front p {
+  display: none;
+}
+main .dotnet .card:hover .back {
+  opacity: 1;
+}
+main .dotnet .card .front {
+  transition: 0.5s;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+  background-color: #581C6A;
+}
+main .dotnet .card .front p {
+  font-size: 5vw;
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+}
+main .dotnet .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+main .dotnet .card .back p {
+  padding: 20px;
+  font-size: 18px;
+}
+main .events {
+  position: relative;
+  display: grid;
+  grid-column: 14/16;
+  grid-row: 6/9;
+}
+main .events .card {
+  display: grid;
+}
+main .events .card:hover .front {
+  transition: 0.5s;
+  width: 0;
+  height: 0;
+}
+main .events .card:hover .front p {
+  display: none;
+}
+main .events .card:hover .back {
+  display: grid;
+}
+main .events .card .front {
+  transition: 0.5s;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-self: end;
+  justify-self: end;
+  background-color: #298EFD;
+}
+main .events .card .front p {
+  font-size: 14px;
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+}
+main .events .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+main .events .card .back p {
+  font-size: 18px;
+  padding: 8px;
+  font-weight: bold;
+  overflow-y: scroll;
+}
+main .blog {
+  position: relative;
+  display: grid;
+  grid-column: 14/16;
+  grid-row: 9/12;
+}
+main .blog .card {
+  display: grid;
+}
+main .blog .card:hover .front {
+  transition: 0.5s;
+  width: 0;
+}
+main .blog .card:hover .front p {
+  display: none;
+}
+main .blog .card:hover .back {
+  opacity: 1;
+}
+main .blog .card .front {
+  transition: 0.5s;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-self: end;
+  background-color: #0443A3;
+}
+main .blog .card .front p {
+  font-size: 14px;
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+}
+main .blog .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+main .blog .card .back p {
+  padding: 8px;
+}
+main .contacts {
+  position: relative;
+  display: grid;
+  grid-column: 14/16;
+  grid-row: 12/13;
+}
+main .contacts .card {
+  display: grid;
+}
+main .contacts .card:hover .front {
+  transition: 0.5s;
+  width: 0;
+}
+main .contacts .card:hover .front p {
+  display: none;
+}
+main .contacts .card:hover .back {
+  display: flex;
+}
+main .contacts .card .front {
+  transition: 0.5s;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-self: start;
+  background-color: #00265F;
+}
+main .contacts .card .front p {
+  font-size: 14px;
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+}
+main .contacts .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+main .contacts .card .back i {
+  margin: 8px;
+}
+main .contacts .card .back i:hover {
+  color: #2fc4fa;
+}
+
+footer {
+  display: grid;
+  grid-column: 2;
+  grid-row: 4;
+}
+footer p {
+  text-align: center;
+  align-self: end;
+  padding: 20px;
+}
+
+@keyframes drop-down {
+  0% {
+    margin-top: -40px;
+  }
+  25% {
+    margin-top: -30px;
+  }
+  50% {
+    margin-top: -20px;
+  }
+  75% {
+    margin-top: -10px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column: 2;
+    grid-row: 3;
+  }
+  main .binary {
+    grid-column: 1/8;
+    grid-row: 1/7;
+    background-color: #fff;
+  }
+  main .js {
+    grid-column: 8/13;
+    grid-row: 1/7;
+    background-color: #F7CF69;
+  }
+  main .js p {
+    font-size: 8vw;
+  }
+  main .events {
+    grid-column: 13/17;
+    grid-row: 1/4;
+    background-color: #2D99FF;
+  }
+  main .blog {
+    grid-column: 13/17;
+    grid-row: 4/6;
+    background-color: #0443A3;
+  }
+  main .contacts {
+    grid-column: 13/17;
+    grid-row: 6/7;
+    background-color: #00265F;
+  }
+  main .java {
+    grid-column: 1/9;
+    grid-row: 7/10;
+    background-color: #E12B4C;
+  }
+  main .java p {
+    font-size: 6vw;
+  }
+  main .php {
+    grid-column: 9/17;
+    grid-row: 7/10;
+    background-color: #8893C0;
+  }
+  main .php p {
+    font-size: 8vw;
+  }
+  main .qa {
+    grid-column: 1/9;
+    grid-row: 10/13;
+    background-color: #52BF77;
+  }
+  main .qa p {
+    font-size: 8vw;
+  }
+  main .dotnet {
+    grid-column: 9/17;
+    grid-row: 10/13;
+    background-color: #642077;
+  }
+  main .dotnet p {
+    font-size: 8vw;
+  }
+}
+
+/*# sourceMappingURL=all.css.map */

@@ -1,0 +1,97 @@
+@import "variables.scss";
+
+header {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 100%;
+  grid-column: 2;
+  grid-row: 1;
+  background-color: #fff;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  animation: 0.4s ease-in-out 0s drop-down;
+  z-index: 1;
+
+  & .logo {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100px;
+    height: 30px;
+  }
+
+  & .menu {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & .icon {
+      margin-right: 20px;
+      color: $BellIconColor;
+
+      &:hover {
+        color: $BellIconHoverColor;
+        cursor: pointer;
+      }
+    }
+
+    & .avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: $AvatarColor;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+
+      &:hover {
+        background-color: $AvatarHoverColor;
+      }
+    }
+
+    .menu-content {
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      width: 200px;
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 2px -1px 15px #dedcdc;
+      border-radius: 2px;
+
+      & .user-name {
+        font-size: 14px;
+        text-align: center;
+        color: #9da3a3;
+        border-bottom: 1px solid #9da3a3;
+        margin-bottom: 8px;
+      }
+
+      & p {
+        padding: 6px;
+        font-weight: 700;
+
+        &:hover {
+          background-color: #F7F6F6;
+        }
+      }
+    }
+
+    #toggle-menu {
+      display: none;
+
+      &:checked ~ .menu-content {
+        display: block;
+      }
+    }
+  }
+}
